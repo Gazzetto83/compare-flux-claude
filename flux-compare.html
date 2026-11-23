@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="flux-compare.css">
+
+<div class="flux-cmp" id="flux-compare-widget">
+  <!-- Hidden source images (supports standard <img> or Grails <g:img>) -->
+  <div class="flux-cmp__sources">
+    <img data-flux-src="1" src="flux1.jpg" alt="FLUX.1 Comparison">
+    <img data-flux-src="2" src="flux2.jpg" alt="FLUX.2 Comparison">
+  </div>
+
+  <!-- Main Navigation Bar -->
+  <div class="flux-cmp__toolbar">
+    <div class="flux-cmp__tabs" role="tablist">
+      <button type="button" class="flux-cmp__tab is-active" data-mode="v-split">
+        <span>◫</span> Vertical Split
+      </button>
+      <button type="button" class="flux-cmp__tab" data-mode="h-split">
+        <span>⊟</span> Horizontal Split
+      </button>
+      <button type="button" class="flux-cmp__tab" data-mode="magnifier">
+        <span>🔍</span> Magnifier
+      </button>
+      <button type="button" class="flux-cmp__tab" data-mode="sync-loupe">
+        <span>👓</span> Synced Loupe
+      </button>
+      <button type="button" class="flux-cmp__tab" data-mode="stack">
+        <span>☰</span> Top / Bottom
+      </button>
+      <button type="button" class="flux-cmp__tab" data-mode="column">
+        <span>◫</span> 1-to-1 Column
+      </button>
+    </div>
+
+    <button type="button" class="flux-cmp__swap" data-action="swap">
+      ⇄ Swap Images
+    </button>
+  </div>
+
+  <!-- Contextual Sub-bar -->
+  <div class="flux-cmp__subbar">
+    <span class="flux-cmp__hint">Drag across the image to compare left and right.</span>
+    <div class="flux-cmp__subbar-controls"></div>
+  </div>
+
+  <!-- Dynamic Viewport -->
+  <div class="flux-cmp__stage"></div>
+</div>
+
+<script src="flux-compare.js"></script>

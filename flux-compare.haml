@@ -1,0 +1,34 @@
+.flux-cmp#flux-compare-widget
+  .flux-cmp__sources
+    %g:img(dir="images/contentboxes" file="flux1.jpg" alt="FLUX.1 Comparison" data-flux-src="1")
+    %g:img(dir="images/contentboxes" file="flux2.jpg" alt="FLUX.2 Comparison" data-flux-src="2")
+
+  .flux-cmp__toolbar
+    .flux-cmp__tabs(role="tablist")
+      %button.flux-cmp__tab.is-active(type="button" data-mode="v-split")
+        %span ◫
+        Vertical Split
+      %button.flux-cmp__tab(type="button" data-mode="h-split")
+        %span ⊟
+        Horizontal Split
+      %button.flux-cmp__tab(type="button" data-mode="magnifier")
+        %span 🔍
+        Magnifier
+      %button.flux-cmp__tab(type="button" data-mode="sync-loupe")
+        %span 👓
+        Synced Loupe
+      %button.flux-cmp__tab(type="button" data-mode="stack")
+        %span ☰
+        Top / Bottom
+      %button.flux-cmp__tab(type="button" data-mode="column")
+        %span ◫
+        1-to-1 Column
+
+    %button.flux-cmp__swap(type="button" data-action="swap")
+      ⇄ Swap Images
+
+  .flux-cmp__subbar
+    %span.flux-cmp__hint Drag across the image to compare left and right.
+    .flux-cmp__subbar-controls
+
+  .flux-cmp__stage

@@ -1,0 +1,343 @@
+.flux-cmp {
+  --fc-panel: #181a1f;
+  --fc-surface: #22252c;
+  --fc-border: #313642;
+  --fc-accent: #e53935;
+  --fc-accent-hover: #ff4f4b;
+  --fc-text: #f3f4f6;
+  --fc-muted: #9ca3af;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--fc-text);
+  max-width: 1000px;
+  margin: 24px auto;
+  box-sizing: border-box;
+}
+
+.flux-cmp *,
+.flux-cmp *::before,
+.flux-cmp *::after {
+  box-sizing: inherit;
+}
+
+.flux-cmp__toolbar {
+  background: var(--fc-panel);
+  border: 1px solid var(--fc-border);
+  border-radius: 12px 12px 0 0;
+  padding: 10px 12px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.flux-cmp__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  background: #111317;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.flux-cmp__tab {
+  background: transparent;
+  color: var(--fc-muted);
+  border: none;
+  padding: 7px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.flux-cmp__tab:hover {
+  color: var(--fc-text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.flux-cmp__tab.is-active {
+  background: var(--fc-accent);
+  color: #fff;
+  font-weight: 600;
+}
+
+.flux-cmp__swap {
+  background: var(--fc-surface);
+  color: var(--fc-text);
+  border: 1px solid var(--fc-border);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.flux-cmp__swap:hover {
+  border-color: var(--fc-accent);
+  background: #2a2e37;
+}
+
+.flux-cmp__subbar {
+  background: var(--fc-surface);
+  border-left: 1px solid var(--fc-border);
+  border-right: 1px solid var(--fc-border);
+  padding: 8px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: var(--fc-muted);
+}
+
+.flux-cmp__subbar-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.flux-cmp__pill {
+  background: var(--fc-panel);
+  color: var(--fc-text);
+  border: 1px solid var(--fc-border);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.flux-cmp__pill.is-active {
+  background: var(--fc-accent);
+  border-color: var(--fc-accent);
+  color: #fff;
+}
+
+.flux-cmp__stage {
+  position: relative;
+  width: 100%;
+  background: #0b0c0e;
+  border: 1px solid var(--fc-border);
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.flux-cmp__sources {
+  display: none;
+}
+
+/* Overlay Views (Vertical / Horizontal Split) */
+.flux-cmp__overlay-box {
+  position: relative;
+  width: 100%;
+  cursor: ew-resize;
+  touch-action: none;
+}
+
+.flux-cmp__overlay-box.is-horizontal {
+  cursor: ns-resize;
+}
+
+.flux-cmp__img-base,
+.flux-cmp__img-top {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+.flux-cmp__img-top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  clip-path: inset(0 50% 0 0);
+}
+
+.flux-cmp__divider-v {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: var(--fc-accent);
+  pointer-events: none;
+}
+
+.flux-cmp__divider-v::after {
+  content: "↔";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--fc-accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.flux-cmp__divider-h {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  background: var(--fc-accent);
+  pointer-events: none;
+}
+
+.flux-cmp__divider-h::after {
+  content: "↕";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--fc-accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Single Magnifier */
+.flux-cmp__mag-box {
+  position: relative;
+  width: 100%;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.flux-cmp__loupe {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 3px solid var(--fc-accent);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.75);
+  background-repeat: no-repeat;
+  pointer-events: none;
+  display: none;
+  z-index: 10;
+}
+
+/* Synced Side-by-Side Loupe */
+.flux-cmp__dual-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 8px;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.flux-cmp__dual-pane {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.flux-cmp__dual-pane img {
+  display: block;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+}
+
+/* Top / Bottom Stack */
+.flux-cmp__stack-box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+.flux-cmp__stack-item {
+  position: relative;
+}
+
+.flux-cmp__stack-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 1-to-1 Column Crop */
+.flux-cmp__col-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 12px;
+}
+
+.flux-cmp__col-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--fc-border);
+}
+
+.flux-cmp__col-card img {
+  display: block;
+  width: 300%;
+  max-width: none;
+  height: auto;
+  transition: transform 0.25s ease;
+}
+
+/* Badges */
+.flux-cmp__badge {
+  position: absolute;
+  top: 12px;
+  background: rgba(17, 19, 23, 0.85);
+  border: 1px solid var(--fc-border);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.flux-cmp__badge--left {
+  left: 12px;
+}
+
+.flux-cmp__badge--right {
+  right: 12px;
+}
+
+/* Responsive / Small Screens */
+@media (max-width: 600px) {
+  .flux-cmp__loupe {
+    width: 120px;
+    height: 120px;
+  }
+
+  .flux-cmp__dual-box,
+  .flux-cmp__col-box {
+    grid-template-columns: 1fr;
+  }
+}
